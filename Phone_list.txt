@@ -1,0 +1,4 @@
+1 iPhone_16 Apple 999.99
+2 Galaxy_S24 Samsung 799.99
+3 Pixel_9 Google 799.99
+4 Nova_11_Pro Huawei 862.72
