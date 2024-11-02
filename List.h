@@ -326,6 +326,49 @@ class LinkedList
 
         } 
 
+        //--------------------------------------(Public) Remove--------------------------------------
+
+void remove(const T& value) 
+{
+    ListNode* currNode = head;
+
+    // Traverse the list to find the node with the specified value
+    while (currNode != nullptr && *(currNode->val) != value) 
+    {
+        currNode = currNode->nextNode;
+    }
+
+    // If the value is not found, exit the function
+    if (currNode == nullptr) 
+    {
+        cout << "Value not found in the list." << endl;
+        return;
+    }
+
+    // If the node to be removed is the head node
+    if (currNode == head) 
+    {
+        head = currNode->nextNode;
+        if (head) head->prevNode = nullptr;
+    } 
+    else if (currNode == tail) // If the node to be removed is the tail node
+    {
+        tail = currNode->prevNode;
+        if (tail) tail->nextNode = nullptr;
+    } 
+    else // If the node to be removed is in the middle
+    {
+        currNode->prevNode->nextNode = currNode->nextNode;
+        currNode->nextNode->prevNode = currNode->prevNode;
+    }
+
+    delete currNode; // Delete the node from memory
+    cout << "Node removed successfully." << endl;
+}
+
 }; 
 
 #endif 
+
+
+
